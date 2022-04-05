@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.Practice'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly 'org.projectlombok:lombok' //lombok 의존성 등록
+	annotationProcessor 'org.projectlombok:lombok' //lombok 의존성 등록
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //JPA 의존성 등록
+	implementation 'com.h2database:h2' //h2 의존성 등록
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc' //h2 오류 해결
+	runtimeOnly 'com.h2database:h2' //h2 오류 해결
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
