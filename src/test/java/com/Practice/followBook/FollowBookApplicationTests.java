@@ -22,6 +22,7 @@ class FollowBookApplicationTests {
 	@Test
 	public void hello_반환() throws Exception{
 		String hello = "hello";
+		String test = "test";
 
 		mvc.perform(get("/hello")) //MockMvc를 통해 /hello 주소로 HTTP GET 요청
 				.andExpect(status().isOk()) //mvc.perform의 결과를 검증, HTTP Header의 Status를 검증
