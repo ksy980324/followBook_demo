@@ -21,6 +21,7 @@ dependencies {
 	implementation 'com.h2database:h2' //h2 의존성 등록
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc' //h2 오류 해결
 	runtimeOnly 'com.h2database:h2' //h2 오류 해결
+	implementation('org.springframework.boot:spring-boot-starter-mustache') //mustache 의존성 등록
 }
 
 tasks.named('test') {
