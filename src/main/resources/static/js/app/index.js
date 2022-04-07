@@ -44,18 +44,18 @@ var main = { //중복 함수 이름이 발생할 수 있기 때문에 변수의 
         var id = $('#id').val();
 
         $.ajax({
-                            type: 'PUT', //HTTP Method 중 PUT 메소드, PostsApiController에서 이미 @PutMapping을 선언했기 때문에 PUT을 사용해야 함
-                            //REST 규약에 맞게 설정된 것, REST에서 CRUD는 HTTP Method에 맵핑 (생성: POST, 읽기: GET, 수정: PUT, 삭제: DELETE)
-                            url: '/api/v1/posts/'+id, //어떤 게시글을 수정할지 URL Path로 구분하기 위해 Path에 id를 추가
-                            dataType: 'json',
-                            contentType:'application/json; charset=utf-8',
-                            data: JSON.stringify(data)
-                        }).done(function() {
-                            alert('글이 수정되었습니다.');
-                            window.location.href = '/';
-                        }).fail(function (error) {
-                            alert(JSON.stringify(error));
-                        });
+            type: 'PUT', //HTTP Method 중 PUT 메소드, PostsApiController에서 이미 @PutMapping을 선언했기 때문에 PUT을 사용해야 함
+            //REST 규약에 맞게 설정된 것, REST에서 CRUD는 HTTP Method에 맵핑 (생성: POST, 읽기: GET, 수정: PUT, 삭제: DELETE)
+            url: '/api/v1/posts/'+id, //어떤 게시글을 수정할지 URL Path로 구분하기 위해 Path에 id를 추가
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+            }).done(function() {
+                alert('글이 수정되었습니다.');
+                window.location.href = '/';
+            }).fail(function (error) {
+                alert(JSON.stringify(error));
+            });
     },
     delete : function () {
             var id = $('#id').val();

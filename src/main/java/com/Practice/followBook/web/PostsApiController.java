@@ -1,6 +1,5 @@
 package com.Practice.followBook.web;
 
-import com.Practice.followBook.domain.posts.PostsRepository;
 import com.Practice.followBook.service.posts.PostsService;
 import com.Practice.followBook.web.dto.PostsResponseDto;
 import com.Practice.followBook.web.dto.PostsSaveRequestDto;
