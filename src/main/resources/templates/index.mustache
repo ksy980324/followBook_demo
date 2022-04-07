@@ -2,9 +2,19 @@
 <!-- "중괄호 2개 > 중괄호 2개"는 현재 머스테치 파일(index.mustache)을 기준으로 다른 파일을 가져옴 -->
 <h1>스프링부트로 시작하는 웹 서비스</h1>
 <div class="col-md-12">
+    <!--로그인 기능 영역-->
     <div class="row">
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            {{#userName}} <!-- 머스테치는 다른 언어와 같은 if문을 제공X(ture/false 여부만 판단), 최종값을 항상 넘겨줘야 함 -->
+                Logged in as: <span id="user">{{userName}}</span>
+                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+                <!-- href="/logout": 스프링 시큐리티에서 기본적으로 제공하는 로그아웃 URL -->
+            {{/userName}}
+            {{^userName}} <!-- 머스테치에서 해당 값이 존재하지 않는 경우에는 "^"를 사용, userName이 없다면 로그인 버튼을 노출 -->
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+                <!-- href="/oauth2/authorization/google": 스프링 시큐리티에서 기본적으로 제공하는 로그인 URL -->
+            {{/userName}}
         </div>
     </div>
     <br>
