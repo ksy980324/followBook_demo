@@ -23,6 +23,8 @@ dependencies {
 	runtimeOnly 'com.h2database:h2' //h2 오류 해결
 	implementation('org.springframework.boot:spring-boot-starter-mustache') //mustache 의존성 등록
 	implementation('org.springframework.boot:spring-boot-starter-oauth2-client') //스프링 시큐리티
+	implementation('org.springframework.session:spring-session-jdbc') // jdbc 의존성 등록
+	testImplementation("org.springframework.security:spring-security-test") // spring-security-test 의존성 등록
 }
 
 tasks.named('test') {

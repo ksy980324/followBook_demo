@@ -1,5 +1,6 @@
 package com.Practice.followBook.web;
 
+import com.Practice.followBook.config.auth.LoginUser;
 import com.Practice.followBook.config.auth.dto.SessionUser;
 import com.Practice.followBook.service.posts.PostsService;
 import com.Practice.followBook.web.dto.PostsResponseDto;
@@ -19,12 +20,12 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser user){
         //Model: 서버 템플릿 엔진에서 사용할 수 있는 객체를 저장할 수 있음
         model.addAttribute("posts", postsService.findAllDesc());
         //postsService.findAllDesc()로 가져온 결과를 posts로 index.mustache에 전달
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-        //CustomOAuth2UserService에서 로그인 성공 시 세션에 SessionUser를 저장, 로그인 성공 시 httpSession,getAttribute("user")에서 값을 가져올 수 있음
+//        SessionUser user = (SessionUser) httpSession.getAttribute("user"); -> @LoginUser만 사용해 세션 정보 가져올 수 있음
+//        //CustomOAuth2UserService에서 로그인 성공 시 세션에 SessionUser를 저장, 로그인 성공 시 httpSession,getAttribute("user")에서 값을 가져올 수 있음
         if(user != null) //세션에 저장된 값이 있을 때만 model에 userNmae으로 등록
             model.addAttribute("userName", user.getName());
         return "index";
